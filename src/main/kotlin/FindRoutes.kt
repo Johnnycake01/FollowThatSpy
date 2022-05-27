@@ -33,10 +33,20 @@ Difficulty Estimates
 Intermediate Difficulty, 45 Minutes Estimated Time
 
  */
-
 fun findRoutes(routes: ArrayList<ArrayList<String>>): String {
-
-    return ""
+    val temp= mutableListOf<String>()
+    var result = ""
+    for(arr in routes){
+        for(item in arr){
+            temp.add(item)
+        }
+    }
+    for (i in temp.indices){
+        val lastIndexOfItem = temp.lastIndexOf(temp[i])
+        if (i == lastIndexOfItem)
+            result+= if (result == "") "${temp[i]}" else ", ${temp[i]}"
+    }
+    return result
 }
 
 
